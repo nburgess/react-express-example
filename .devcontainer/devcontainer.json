@@ -3,7 +3,10 @@
 {
 	"name": "Node.js",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	// "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
 	"customizations": {
 		"vscode": {
 			"extensions": [
@@ -19,7 +22,7 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "yarn install",
+	"postCreateCommand": "npm install && cd client && npm install && npm run build",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
